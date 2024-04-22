@@ -1,6 +1,10 @@
 #!/bin/sh -x
 
-VER=2024.3.1
+#VER=2024.4.1
+
+VER=$(curl --silent "https://api.github.com/repos/bitwarden/clients/releases" |	# get latest browser release version number
+	grep -m 1 '"tag_name": "browser-v' |
+	sed -E 's/.*"browser-v([^"]+)".*/\1/')
 
 echo "Building for '$BRAND' with suffix '$SUFFIX' and watermark '$LABEL'"
 
