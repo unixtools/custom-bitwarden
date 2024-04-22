@@ -1,11 +1,13 @@
 all: st hp sp
 
 st:
-	BRAND=MST LABEL=ST SUFFIX="-st" ./build.sh
+	BROWSER=chrome BRAND=MST LABEL=ST SUFFIX="-st" ./build.sh
+	BROWSER=firefox  BRAND=MST LABEL=ST SUFFIX="-st" ./build.sh
 
 hp:
-	BRAND=HivePoint LABEL=HP SUFFIX="-hp" ./build.sh
+	BROWSER=chrome BRAND=HivePoint LABEL=HP SUFFIX="-hp" ./build.sh
+	BROWSER=firefox BRAND=HivePoint LABEL=HP SUFFIX="-hp" ./build.sh
 
 sp:
-	BRAND=Spirent LABEL=SP SUFFIX="-sp" ./build.sh
-
+	BROWSER=chrome BRAND=Spirent LABEL=SP SUFFIX="-sp" ./build.sh
+	BROWSER=firefox BRAND=Spirent LABEL=SP SUFFIX="-sp" ./build.sh
