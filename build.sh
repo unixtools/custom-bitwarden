@@ -1,6 +1,6 @@
 #!/bin/sh -x
 
-VER=2025.3.0
+VER=2025.6.1
 
 echo "Building for '$BRAND' with suffix '$SUFFIX' and watermark '$LABEL'"
 
