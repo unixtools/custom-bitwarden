@@ -1,6 +1,11 @@
-#!/bin/sh -x
+#!/bin/bash -x
 
-VER=2026.4.1
+VER=2026.5.1
+
+if [ "x$SUFFIX" == "x" ]; then
+  echo "must set suffix and branch and label, you probably meant: make"
+  exit 1
+fi
 
 echo "Building for '$BRAND' with suffix '$SUFFIX' and watermark '$LABEL'"
 
