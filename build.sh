@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-VER=2026.5.1
+VER=2026.8.0
 
 if [ "x$SUFFIX" == "x" ]; then
   echo "must set suffix and branch and label, you probably meant: make"
