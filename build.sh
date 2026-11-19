@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-VER=2026.10.2
+VER=2026.11.0
 
 if [ "x$SUFFIX" == "x" ]; then
   echo "must set suffix and branch and label, you probably meant: make"
@@ -9,9 +9,11 @@ fi
 
 echo "Building for '$BRAND' with suffix '$SUFFIX' and watermark '$LABEL'"
 
-wget -N https://github.com/bitwarden/browser/releases/download/browser-v${VER}/dist-chrome-${VER}.zip
+wget -N https://github.com/bitwarden/browser/releases/download/browser-v${VER}/bit-dist-chrome-${VER}.zip
+rm -rf browser${SUFFIX}-old
+mv browser${SUFFIX} browser${SUFFIX}-old
 rm -rf browser${SUFFIX}
-unzip -qd browser${SUFFIX} dist-chrome-${VER}.zip
+unzip -qd browser${SUFFIX} bit-dist-chrome-${VER}.zip
 
 (cd browser${SUFFIX} && find . -type f -exec perl -pi -e 's/"Bitwarden"/"Bitwarden - '${BRAND}'"/go;' {} \;)
 (cd browser${SUFFIX} && find . -type f -exec perl -pi -e 's/"Bitwarden - Free Password Manager"/"Bitwarden - '${BRAND}'"/go;' {} \;)
