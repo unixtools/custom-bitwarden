@@ -1,5 +1,6 @@
 #!/bin/bash -x
 
+LIC=bit
 VER=2026.11.0
 
 if [ "x$SUFFIX" == "x" ]; then
@@ -9,11 +10,11 @@ fi
 
 echo "Building for '$BRAND' with suffix '$SUFFIX' and watermark '$LABEL'"
 
-wget -N https://github.com/bitwarden/browser/releases/download/browser-v${VER}/bit-dist-chrome-${VER}.zip
+wget -N https://github.com/bitwarden/browser/releases/download/browser-v${VER}/${LIC}-dist-chrome-${VER}.zip
 rm -rf browser${SUFFIX}-old
 mv browser${SUFFIX} browser${SUFFIX}-old
 rm -rf browser${SUFFIX}
-unzip -qd browser${SUFFIX} bit-dist-chrome-${VER}.zip
+unzip -qd browser${SUFFIX} ${LIC}-dist-chrome-${VER}.zip
 
 (cd browser${SUFFIX} && find . -type f -exec perl -pi -e 's/"Bitwarden"/"Bitwarden - '${BRAND}'"/go;' {} \;)
 (cd browser${SUFFIX} && find . -type f -exec perl -pi -e 's/"Bitwarden - Free Password Manager"/"Bitwarden - '${BRAND}'"/go;' {} \;)
